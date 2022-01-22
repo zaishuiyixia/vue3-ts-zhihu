@@ -1,52 +1,40 @@
 <template>
 <teleport to="#modal">
-  <div class="modal d-block" tabindex="-1" v-if="visible">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">{{title}}</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true" @click="onClose">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <slot></slot>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal"  @click="onClose">取消</button>
-          <button type="button" class="btn btn-primary"  @click="onConfirm">确定</button>
-        </div>
-      </div>
-    </div>
+  <div id="center" v-if="isOpen">
+    <h2><slot>this is a modal</slot></h2>
+    <button @click="buttonClick">Close</button>
   </div>
 </teleport>
 </template>
-
 <script lang="ts">
 import { defineComponent } from 'vue'
-import useDOMCreate from '../hooks/useDOMCreate'
 export default defineComponent({
-  name: 'modal',
   props: {
-    title: String,
-    visible: {
-      type: Boolean,
-      default: false
-    }
+    isOpen: Boolean,
   },
-  emits: ['modal-on-close', 'modal-on-confirm'],
+  emits: {
+    'close-modal': null
+  },
   setup(props, context) {
-    useDOMCreate('modal')
-    const onClose = () => {
-      context.emit('modal-on-close')
-    }
-    const onConfirm = () => {
-      context.emit('modal-on-confirm')
+    const buttonClick = () => {
+      context.emit('close-modal')
     }
     return {
-      onClose,
-      onConfirm
+      buttonClick
     }
   }
 })
 </script>
+<style>
+  #center {
+    width: 200px;
+    height: 200px;
+    border: 2px solid black;
+    background: white;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    margin-left: -100px;
+    margin-top: -100px;
+  }
+</style>
