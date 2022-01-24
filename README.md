@@ -1,22 +1,24 @@
-# 使用 Typescript + Vue3.0 知乎专栏
+# vue3
 
-### 安装依赖
+## Project setup
 ```
 npm install
 ```
 
-### 运行本地开发环境
+### Compiles and hot-reloads for development
 ```
 npm run serve
 ```
 
-## 课程与服务
+### Compiles and minifies for production
+```
+npm run build
+```
 
-* 在线后端API 查询和使用站点：[http://api.vikingship.xyz/](http://api.vikingship.xyz/)
-* 项目在线文档：[http://docs.vikingship.xyz/](http://docs.vikingship.xyz/)
+### Lints and fixes files
+```
+npm run lint
+```
 
-## 三分支代码结构
-
-* main 默认分支项目代码
-* vue3-basic 分之，vue3学习代码
-* typescript-basic 分之，TypeScript学习代码
+### Customize configuration
+See [Configuration Reference](https://cli.vuejs.org/config/).
