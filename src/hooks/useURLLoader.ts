@@ -4,7 +4,7 @@ import axios from 'axios'
 function useURLLoader<T>(url: string) {
   const result = ref<T | null>(null)
   const loading = ref(true)
-  const loaded = ref(false)
+  const loaded = ref(false) //是否加载完毕
   const error = ref(null)
 
   axios.get(url).then((rawData) => {

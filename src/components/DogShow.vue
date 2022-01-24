@@ -3,12 +3,16 @@
 </template>
 <script lang="ts">
 import axios from 'axios'
-import { defineComponent } from 'vue'
+import { defineComponent, ref } from 'vue'
 export default defineComponent({
   async setup() {
-    const rawData = await axios.get('https://dog.ceo/api/breeds/image')
+    const result = ref(null)
+    const rawData = await axios.get('https://dog.ceo/api/breeds/image/random')
+    if(rawData.data) {
+      result.value = rawData.data
+    }
     return {
-      result: rawData.data
+      result
     }
   }
 })
