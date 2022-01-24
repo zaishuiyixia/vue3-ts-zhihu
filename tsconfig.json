@@ -27,7 +27,8 @@
     ]
   },
   "include": [
-    "src/**/*.ts",
+    "src/*.ts", // 包含./src 下的ts所有文件
+    "src/**/*.ts", // 包含./src/下的所有目录的所有ts文件，包含任何目录下面的目录下的ts文件
     "src/**/*.tsx",
     "src/**/*.vue",
     "tests/**/*.ts",
