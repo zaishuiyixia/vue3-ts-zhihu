@@ -76,3 +76,16 @@ export const currentUser: UserProps = {
   nickName: 'Andy',
   id: 12
 }
+
+export interface RuleProp {
+  type: 'required' | 'email' | 'custom';
+  message: string;
+  validator?: () => boolean;
+}
+
+export type RulesProp = RuleProp[]
+
+export const emailRules: RulesProp = [
+  { type: 'required', message: '电子邮箱地址不能为空' },
+  { type: 'email', message: '请输入正确的电子邮箱格式' }
+]

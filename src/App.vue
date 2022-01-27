@@ -1,29 +1,35 @@
 <template>
   <div class="container">
     <global-header :user="currentUser"></global-header>
-    <colume-list :list="columnList"></colume-list>
+    <router-view></router-view>
+    <footer class="text-center py-4 text-secondary bg-light mt-6">
+      <small>
+        <ul class="list-inline mb-0">
+          <li class="list-inline-item">© 2020 者也专栏</li>
+          <li class="list-inline-item">课程</li>
+          <li class="list-inline-item">文档</li>
+          <li class="list-inline-item">联系</li>
+          <li class="list-inline-item">更多</li>
+        </ul>
+      </small>
+    </footer>
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import { testData as columnList, currentUser } from './testData'
-import ColumeList from "./components/ColumnList.vue"
+import { currentUser } from './testData'
 import GlobalHeader from "./components/GlobalHeader.vue"
 
 export default defineComponent({
+  name: "App",
   components: {
-    GlobalHeader,
-    ColumeList
+    GlobalHeader
   },
   setup() {
     return {
-      currentUser,
-      columnList
+      currentUser
     }
   },
 })
 </script>
-
-<style lang="less">
-</style>
