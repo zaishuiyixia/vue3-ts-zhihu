@@ -1,4 +1,4 @@
-import { ColumnProps, ImageProps, UserProps } from './store'
+import { ColumnProps, ImageProps, UserProps } from '@/store'
 
 export function generateFitUrl(data: ImageProps, width: number, height: number, format = ['m_pad']) {
   if (data && data.url) {
@@ -15,7 +15,7 @@ export function addColumnAvatar(data: ColumnProps | UserProps, width: number, he
   } else {
     const parseCol = data as ColumnProps
     data.avatar = {
-      fitUrl: require(parseCol.title ? '@/assets/column.jpg' : '@/assets/avatar.jpg')
+      fitUrl: require(parseCol.title ? '@/assets/column.png' : '@/assets/avatar.png')
     }
   }
 }
@@ -55,15 +55,20 @@ export const arrToObj = <T extends { _id?: string }>(arr: Array<T>) => {
     return prev
   }, {} as { [key: string]: T })
 }
-const result = arrToObj(testData)
-console.log(result)
+
+//测试
+// const result = arrToObj(testData)
+// console.log(result)
+
 export const objToArr = <T>(obj: {[key: string]: T}) => {
   return Object.keys(obj).map(key => obj[key])
 }
-const testData2: {[key: string]: TestProps} = {
-  1: { _id: '1', name: 'a' },
-  2: { _id: '2', name: 'b' }
-}
 
-const result2 = objToArr(testData2)
-console.log(result2)
+//测试
+// const testData2: {[key: string]: TestProps} = {
+//   1: { _id: '1', name: 'a' },
+//   2: { _id: '2', name: 'b' }
+// }
+//
+// const result2 = objToArr(testData2)
+// console.log(result2)

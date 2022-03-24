@@ -31,9 +31,9 @@
 import { defineComponent, ref } from 'vue'
 import { useStore } from 'vuex'
 import { useRouter } from 'vue-router'
-import ValidateInput, { RulesProp } from '../components/ValidateInput.vue'
-import ValidateForm from '../components/ValidateForm.vue'
-import createMessage from '../components/createMessage'
+import ValidateInput, { RulesProp } from '@/components/ValidateInput.vue'
+import ValidateForm from '@/components/ValidateForm.vue'
+import createMessage from '@/utils/createMessage'
 
 export default defineComponent({
   name: 'Login',

@@ -16,8 +16,8 @@
 <script lang="ts">
 
 import { defineComponent, PropType, computed } from 'vue'
-import { ColumnProps } from '../store'
-import { addColumnAvatar } from '../helper'
+import { ColumnProps } from '@/store'
+import { addColumnAvatar } from '@/utils/helper'
 
 export default defineComponent({
   name: 'ColumnList',

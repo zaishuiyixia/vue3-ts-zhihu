@@ -1,8 +1,8 @@
 <template>
   <div class="post-detail-page">
     <modal title="删除文章" :visible="modalIsVisible"
-      @modal-on-close="modalIsVisible = false"
-      @modal-on-confirm="hideAndDelete"
+           @modal-on-close="modalIsVisible = false"
+           @modal-on-confirm="hideAndDelete"
     >
       <p>确定要删除这篇文章吗？</p>
     </modal>
@@ -20,7 +20,7 @@
         <router-link
           type="button"
           class="btn btn-success"
-          :to="{name: 'create', query: { id: currentPost._id}}"
+          :to="{name: 'create', query: { id: currentPost._id }}"
         >
           编辑
         </router-link>
@@ -35,10 +35,10 @@ import { defineComponent, onMounted, computed, ref } from 'vue'
 import MarkdownIt from 'markdown-it'
 import { useStore } from 'vuex'
 import { useRoute, useRouter } from 'vue-router'
-import { GlobalDataProps, PostProps, ImageProps, UserProps, ResponseType } from '../store'
+import { GlobalState, PostProps, ImageProps, UserProps, ResponseType } from '../store'
 import UserProfile from '../components/UserProfile.vue'
 import Modal from '../components/Modal.vue'
-import createMessage from '../components/createMessage'
+import createMessage from '@/utils/createMessage'
 
 export default defineComponent({
   name: 'post-detail',
@@ -47,7 +47,7 @@ export default defineComponent({
     Modal
   },
   setup() {
-    const store = useStore<GlobalDataProps>()
+    const store = useStore<GlobalState>()
     const route = useRoute()
     const router = useRouter()
     const modalIsVisible = ref(false)

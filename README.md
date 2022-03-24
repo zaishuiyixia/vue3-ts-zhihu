@@ -1,22 +1,9 @@
-# 使用 Typescript + Vue3.0 知乎专栏
+# vue3+ts仿知乎设计
 
-### 安装依赖
-```
-npm install
-```
+## 主要技术栈 vue3/typescript/vue-router/vuex/axios
 
-### 运行本地开发环境
-```
-npm run serve
-```
+### 示例项目结果图片
 
-## 课程与服务
-
-* 在线后端API 查询和使用站点：[http://api.vikingship.xyz/](http://api.vikingship.xyz/)
-* 项目在线文档：[http://docs.vikingship.xyz/](http://docs.vikingship.xyz/)
-
-## 三分支代码结构
-
-* main 默认分支项目代码
-* vue3-basic 分之，vue3学习代码
-* typescript-basic 分之，TypeScript学习代码
+![zhihu-refrence](https://user-images.githubusercontent.com/84338417/156725401-7f088e16-35d4-4a91-a06b-34c22036b7f5.png)
+![detail](https://user-images.githubusercontent.com/84338417/156725423-cca9476e-3972-4999-a670-1ff6b9e2feb1.png)
+![login](https://user-images.githubusercontent.com/84338417/156725568-2077063c-fd62-4dcc-a2e3-70881f67fcaa.png)

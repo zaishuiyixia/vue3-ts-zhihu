@@ -17,8 +17,8 @@
 
 <script lang="ts">
 import { defineComponent, PropType, computed } from 'vue'
-import { PostProps, ImageProps } from '../store'
-import { generateFitUrl } from '../helper'
+import { PostProps, ImageProps } from '@/store'
+import { generateFitUrl } from '@/utils/helper'
 export default defineComponent({
   props: {
     list: {

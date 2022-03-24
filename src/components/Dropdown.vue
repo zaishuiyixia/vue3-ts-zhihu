@@ -1,12 +1,12 @@
 <template>
-<div class="dropdown" ref="dropdownRef">
-  <a href="#" class="btn btn-outline-light my-2 dropdown-toggle" @click.prevent="toggleOpen">
-    {{title}}
-  </a>
-  <ul class="dropdown-menu" :style="{display: 'block'}" v-if="isOpen">
-    <slot></slot>
-  </ul>
-</div>
+  <div class="dropdown" ref="dropdownRef">
+    <a href="#" class="btn btn-outline-light my-2 dropdown-toggle" @click.prevent="toggleOpen">
+      {{title}}
+    </a>
+    <ul class="dropdown-menu" @click="toggleOpen" :style="{display: 'block'}" v-if="isOpen">
+      <slot></slot>
+    </ul>
+  </div>
 </template>
 
 <script lang="ts">
@@ -25,6 +25,7 @@ export default defineComponent({
     const dropdownRef = ref<null | HTMLElement>(null)
     const toggleOpen = () => {
       isOpen.value = !isOpen.value
+      console.log(isOpen.value)
     }
     const isClickOutside = useClickOutside(dropdownRef)
 

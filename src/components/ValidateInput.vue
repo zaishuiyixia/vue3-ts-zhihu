@@ -24,8 +24,12 @@
 <script lang="ts">
 import { defineComponent, reactive, PropType, onMounted, computed } from 'vue'
 import { emitter } from './ValidateForm.vue'
+
+// 邮箱校验格式
 const emailReg = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
+
 interface RuleProp {
+  // 校验格式类型
   type: 'required' | 'email' | 'custom';
   message: string;
   validator?: () => boolean;

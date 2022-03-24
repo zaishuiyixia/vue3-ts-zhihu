@@ -17,16 +17,16 @@
 import { defineComponent, computed, onMounted } from 'vue'
 import { useRoute } from 'vue-router'
 import { useStore } from 'vuex'
-import { GlobalDataProps, ColumnProps } from '../store'
+import { GlobalState, ColumnProps } from '@/store'
 import PostList from '../components/PostList.vue'
-import { addColumnAvatar } from '../helper'
+import { addColumnAvatar } from '@/utils/helper'
 export default defineComponent({
   components: {
     PostList
   },
   setup() {
     const route = useRoute()
-    const store = useStore<GlobalDataProps>()
+    const store = useStore<GlobalState>()
     const currentId = route.params.id
     onMounted(() => {
       store.dispatch('fetchColumn', currentId)

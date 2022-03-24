@@ -1,8 +1,8 @@
 <template>
   <div class="create-post-page">
-    <h4>{{isEditMode ? '编辑文章' : '新建文章'}}</h4>
+    <h4>{{ isEditMode ? '编辑文章' : '新建文章' }}</h4>
     <uploader
-      action="/upload"
+      action="/api/upload"
       :beforeUpload="uploadCheck"
       @file-uploaded="handleFileUploaded"
       :uploaded="uploadedData"
@@ -19,7 +19,7 @@
       </template>
       <template #uploaded="dataProps">
         <div class="uploaded-area">
-          <img :src="dataProps.uploadedData.data.url">
+          <img :src="dataProps.uploadedData.data.url" />
           <h3>点击重新上传</h3>
         </div>
       </template>
@@ -28,7 +28,8 @@
       <div class="mb-3">
         <label class="form-label">文章标题：</label>
         <validate-input
-          :rules="titleRules" v-model="titleVal"
+          :rules="titleRules"
+          v-model="titleVal"
           placeholder="请输入文章标题"
           type="text"
         />
@@ -44,8 +45,9 @@
         />
       </div>
       <template #submit>
-        <button class="btn btn-primary btn-large">{{isEditMode ? '更新文章' : '发表文章'}}
-</button>
+        <button class="btn btn-primary btn-large">
+          {{ isEditMode ? '更新文章' : '发表文章' }}
+        </button>
       </template>
     </validate-form>
   </div>
@@ -55,12 +57,12 @@
 import { defineComponent, ref, onMounted } from 'vue'
 import { useStore } from 'vuex'
 import { useRouter, useRoute } from 'vue-router'
-import { GlobalDataProps, PostProps, ResponseType, ImageProps } from '../store'
-import ValidateInput, { RulesProp } from '../components/ValidateInput.vue'
-import ValidateForm from '../components/ValidateForm.vue'
-import Uploader from '../components/Uploader.vue'
-import createMessage from '../components/createMessage'
-import { beforeUploadCheck } from '../helper'
+import { GlobalState, PostProps, ResponseType, ImageProps } from '@/store'
+import ValidateInput, { RulesProp } from '@/components/ValidateInput.vue'
+import ValidateForm from '@/components/ValidateForm.vue'
+import Uploader from '@/components/Uploader.vue'
+import createMessage from '@/utils/createMessage'
+import { beforeUploadCheck } from '@/utils/helper'
 export default defineComponent({
   name: 'Login',
   components: {
@@ -74,7 +76,7 @@ export default defineComponent({
     const router = useRouter()
     const route = useRoute()
     const isEditMode = !!route.query.id
-    const store = useStore<GlobalDataProps>()
+    const store = useStore<GlobalState>()
     let imageId = ''
     const titleRules: RulesProp = [
       { type: 'required', message: '文章标题不能为空' }
@@ -90,7 +92,8 @@ export default defineComponent({
           if (currentPost.image) {
             uploadedData.value = { data: currentPost.image }
           }
-          titleVal.value = currentPost.title
+          // console.log(currentPost.title, currentPost.content);
+          titleVal.value = currentPost.title || ''
           contentVal.value = currentPost.content || ''
         })
       }
@@ -128,7 +131,7 @@ export default defineComponent({
       }
     }
     const uploadCheck = (file: File) => {
-      const result = beforeUploadCheck(file, { format: ['image/jpeg', 'image/png'], size: 1 })
+      const result = beforeUploadCheck(file, { format: ['image/jpeg', 'image/png'], size: 3 })
       const { passed, error } = result
       if (error === 'format') {
         createMessage('上传图片只能是 JPG/PNG 格式!', 'error')
