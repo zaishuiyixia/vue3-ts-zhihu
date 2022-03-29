@@ -19,6 +19,7 @@
     <h1 v-if="loading">Loading!...</h1>
     <img v-if="loaded" :src="result[0].url" >
     <h1>X: {{x}}, Y: {{y}}</h1>
+    <h1>NewX: {{newX}}</h1>
     <button @click="increase">👍+1</button><br/>
     <button @click="updateGreeting">Update Title</button>
   </div>
@@ -65,6 +66,7 @@ export default {
       double: computed(() => data.count * 2),
     })
     const { x, y } = useMousePosition()
+    const newX = computed(() => x.value * 2)
     const { result, loading, loaded } = useURLLoader<CatResult[]>('https://api.thecatapi.com/v1/images/search?limit=1')
     watch(result, () => {
       if (result.value) {
@@ -88,6 +90,7 @@ export default {
       greetings,
       updateGreeting,
       x,
+      newX,
       y,
       result,
       loading,

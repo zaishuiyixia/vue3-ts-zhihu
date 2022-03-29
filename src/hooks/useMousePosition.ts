@@ -5,6 +5,7 @@ function useMousePosition() {
   const updateMouse = (e: MouseEvent) => {
     x.value = e.pageX
     y.value = e.pageY
+    console.log( x.value, x)
   }
   onMounted(() => {
     document.addEventListener('click', updateMouse)
