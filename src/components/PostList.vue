@@ -26,7 +26,7 @@ export default defineComponent({
       type: Array as PropType<PostProps[]>
     }
   },
-  setup(props) {
+  setup (props) {
     const posts = computed(() => {
       return props.list.map(post => {
         generateFitUrl(post.image as ImageProps, 200, 110, ['m_fill'])

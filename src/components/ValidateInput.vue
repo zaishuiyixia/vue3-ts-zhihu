@@ -45,8 +45,8 @@ export default defineComponent({
       default: 'input'
     }
   },
-  inheritAttrs: false,
-  setup(props, context) {
+  inheritAttrs: false, // 禁止组件的根元素继承 父元素传过来的非props接收的attribute
+  setup (props, context) {
     const inputRef = reactive({
       val: computed({
         get: () => props.modelValue || '',

@@ -23,30 +23,30 @@
 </template>
 
 <script lang="ts">
-  import { defineComponent } from 'vue'
-  import useDOMCreate from '../hooks/useDOMCreate'
-  export default defineComponent({
-    name: 'modal',
-    props: {
-      title: String,
-      visible: {
-        type: Boolean,
-        default: false
-      }
-    },
-    emits: ['modal-on-close', 'modal-on-confirm'],
-    setup(props, context) {
-      useDOMCreate('modal')
-      const onClose = () => {
-        context.emit('modal-on-close')
-      }
-      const onConfirm = () => {
-        context.emit('modal-on-confirm')
-      }
-      return {
-        onClose,
-        onConfirm
-      }
+import { defineComponent } from 'vue'
+import useDOMCreate from '../hooks/useDOMCreate'
+export default defineComponent({
+  name: 'modal',
+  props: {
+    title: String,
+    visible: {
+      type: Boolean,
+      default: false
     }
-  })
+  },
+  emits: ['modal-on-close', 'modal-on-confirm'],
+  setup (props, context) {
+    useDOMCreate('modal')
+    const onClose = () => {
+      context.emit('modal-on-close')
+    }
+    const onConfirm = () => {
+      context.emit('modal-on-confirm')
+    }
+    return {
+      onClose,
+      onConfirm
+    }
+  }
+})
 </script>

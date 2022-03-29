@@ -70,7 +70,7 @@ export default defineComponent({
     ValidateForm,
     Uploader
   },
-  setup() {
+  setup () {
     const uploadedData = ref()
     const titleVal = ref('')
     const router = useRouter()
@@ -106,6 +106,7 @@ export default defineComponent({
     const onFormSubmit = (result: boolean) => {
       if (result) {
         const { column, _id } = store.state.user
+        console.log(store.state.user)
         if (column) {
           const newPost: PostProps = {
             title: titleVal.value,

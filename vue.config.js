@@ -1,5 +1,5 @@
 module.exports = {
-  lintOnSave: false,
+  lintOnSave: false, // 设置是否在开发环境下每次保存代码时都启用 eslint验证
   devServer: {
     overlay: {
       warnings: true,

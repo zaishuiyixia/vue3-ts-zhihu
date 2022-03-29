@@ -24,7 +24,7 @@ export default defineComponent({
       type: String
     }
   },
-  setup() {
+  setup () {
     const node = document.createElement('div')
     node.id = 'back'
     document.body.appendChild(node)

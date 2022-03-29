@@ -30,9 +30,9 @@ export default defineComponent({
   components: {
     // ColumnList,
     GlobalHeader,
-    Loader,
+    Loader
   },
-  setup() {
+  setup () {
     const store = useStore<GlobalState>()
     const currentUser = computed(() => store.state.user)
     const isLoading = computed(() => store.state.loading)
@@ -51,5 +51,3 @@ export default defineComponent({
   }
 })
 </script>
-
-

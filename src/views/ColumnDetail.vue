@@ -24,7 +24,7 @@ export default defineComponent({
   components: {
     PostList
   },
-  setup() {
+  setup () {
     const route = useRoute()
     const store = useStore<GlobalState>()
     const currentId = route.params.id

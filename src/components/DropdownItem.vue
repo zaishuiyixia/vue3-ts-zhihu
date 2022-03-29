@@ -9,7 +9,7 @@ import { defineComponent } from 'vue'
 
 export default defineComponent({
   name: 'DropdownItem',
-  props:{
+  props: {
     disabled: {
       type: Boolean,
       default: false
@@ -21,6 +21,7 @@ export default defineComponent({
 <style>
   .dropdown-option.is-disabled *{
     color: #6c757d;
+    cursor: not-allowed;
     pointer-events: none;
     background: transparent;
   }

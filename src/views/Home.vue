@@ -35,7 +35,7 @@ export default defineComponent({
   components: {
     ColumnList
   },
-  setup() {
+  setup () {
     const store = useStore<GlobalState>()
     const total = computed(() => store.state.columns.total)
     const currentPage = computed(() => store.state.columns.currentPage)

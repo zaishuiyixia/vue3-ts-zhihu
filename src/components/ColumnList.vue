@@ -23,11 +23,14 @@ export default defineComponent({
   name: 'ColumnList',
   props: {
     list: {
+      // 现在的 Array 是没有类型的，只是一个数组，如果希望它是一个 ColomnProps 的数组，直接使用了类型断言直接写成 ColomnProps[]不行的 ，因为 Array 是一个数组的构造函数不是类型，
+      // 可以使用 PropType 这个方法，它接受一个泛型，将 Array 构造函数返回传入的泛型类型。
+      // Vue对定义了type的Prop执行运行时验证，需要通过PropType强制转换构造函数，将类型提供给TypeScript
       type: Array as PropType<ColumnProps[]>,
       required: true
     }
   },
-  setup(props) {
+  setup (props) {
     const columnList = computed(() => {
       return props.list.map(column => {
         addColumnAvatar(column, 50, 50)

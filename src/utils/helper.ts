@@ -1,6 +1,6 @@
 import { ColumnProps, ImageProps, UserProps } from '@/store'
 
-export function generateFitUrl(data: ImageProps, width: number, height: number, format = ['m_pad']) {
+export function generateFitUrl (data: ImageProps, width: number, height: number, format = ['m_pad']) {
   if (data && data.url) {
     const formatStr = format.reduce((prev, current) => {
       return current + ',' + prev
@@ -9,7 +9,7 @@ export function generateFitUrl(data: ImageProps, width: number, height: number, 
   }
 }
 
-export function addColumnAvatar(data: ColumnProps | UserProps, width: number, height: number) {
+export function addColumnAvatar (data: ColumnProps | UserProps, width: number, height: number) {
   if (data.avatar) {
     generateFitUrl(data.avatar, width, height)
   } else {
@@ -25,7 +25,7 @@ interface CheckCondition {
   size?: number;
 }
 type ErrorType = 'size' | 'format' | null
-export function beforeUploadCheck(file: File, condition: CheckCondition) {
+export function beforeUploadCheck (file: File, condition: CheckCondition) {
   const { format, size } = condition
   const isValidFormat = format ? format.includes(file.type) : true
   const isValidSize = size ? (file.size / 1024 / 1024 < size) : true
@@ -56,7 +56,7 @@ export const arrToObj = <T extends { _id?: string }>(arr: Array<T>) => {
   }, {} as { [key: string]: T })
 }
 
-//测试
+// 测试
 // const result = arrToObj(testData)
 // console.log(result)
 
@@ -64,7 +64,7 @@ export const objToArr = <T>(obj: {[key: string]: T}) => {
   return Object.keys(obj).map(key => obj[key])
 }
 
-//测试
+// 测试
 // const testData2: {[key: string]: TestProps} = {
 //   1: { _id: '1', name: 'a' },
 //   2: { _id: '2', name: 'b' }

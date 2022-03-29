@@ -39,18 +39,18 @@ export default defineComponent({
       required: true
     }
   },
-  setup(){
-    const store = useStore<GlobalState>();
-    const router = useRouter();
+  setup () {
+    const store = useStore<GlobalState>()
+    const router = useRouter()
     const logout = () => {
-        store.commit('logout');
-        createMessage('退出成功,两秒跳回登录页面', 'success');
-        setTimeout(() => {
-          router.push('/login');
-        },2000)
+      store.commit('logout')
+      createMessage('退出成功,两秒跳回登录页面', 'success')
+      setTimeout(() => {
+        router.push('/login')
+      }, 2000)
     }
     return {
-      logout,
+      logout
     }
   }
 })
